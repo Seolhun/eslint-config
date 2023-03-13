@@ -38,11 +38,9 @@ module.exports = {
       'error',
       {
 				groups: [
-          "external",
+          ["builtin", "external"],
           "internal",
-          "builtin",
-          "object",
-          "type",
+          ["object", "type"],
           "sibling",
           "parent",
           "index",
