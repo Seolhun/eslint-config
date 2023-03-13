@@ -36,7 +36,25 @@ module.exports = {
     'no-unused-vars': 0,
     // React
     'react/prop-types': 0,
-    'react/display-name': 0,
+		'react/display-name': 0,
+		'react/sort-comp': [
+      2,
+      {
+        order: [
+          'static-variables',
+          'static-methods',
+          'instance-variables',
+          'getters',
+          'setters',
+          'lifecycle',
+          'rendering',
+          'everything-else',
+        ],
+        groups: {
+          rendering: ['/^render.+$/', 'render'],
+        },
+      },
+    ],
     // Typescript
     '@typescript-eslint/explicit-module-boundary-types': 0,
   },
