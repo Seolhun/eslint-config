@@ -37,19 +37,20 @@ module.exports = {
     'import/order': [
       'error',
       {
-        groups: [
-          ['builtin', 'external'],
-          'internal',
-          'parent',
-          'sibling',
-          'index',
-          'object',
+				groups: [
+          "external",
+          "internal",
+          "builtin",
+          "object",
+          "type",
+          "sibling",
+          "parent",
+          "index",
         ],
         pathGroups: [
           {
-            pattern:
-              '~(assets|clients|components|containers|features|pages|models|constants|hooks|utils|vendors)/**',
-            group: 'internal',
+            pattern: "~/**",
+            group: "internal"
           },
         ],
         pathGroupsExcludedImportTypes: ['builtin', 'external'],
