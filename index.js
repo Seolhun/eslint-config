@@ -33,28 +33,37 @@ module.exports = {
     // Custom
     'max-len': 0,
     'no-var-requires': 0,
-    'no-unused-vars': 0,
-    // React
-    'react/prop-types': 0,
-		'react/display-name': 0,
-		'react/sort-comp': [
-      2,
+		'no-unused-vars': 0,
+    'import/order': [
+      'error',
       {
-        order: [
-          'static-variables',
-          'static-methods',
-          'instance-variables',
-          'getters',
-          'setters',
-          'lifecycle',
-          'rendering',
-          'everything-else',
+        groups: [
+          ['builtin', 'external'],
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+          'object',
         ],
-        groups: {
-          rendering: ['/^render.+$/', 'render'],
+        pathGroups: [
+          {
+            pattern:
+              '@(assets|components|containers|features|pages|models|constants|hooks|utils|vendors)/**',
+            group: 'internal',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['builtin', 'external'],
+        'newlines-between': 'always',
+        warnOnUnassignedImports: true,
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
         },
       },
     ],
+    // React
+    'react/prop-types': 0,
+		'react/display-name': 0,
     // Typescript
     '@typescript-eslint/explicit-module-boundary-types': 0,
   },
