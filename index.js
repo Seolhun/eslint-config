@@ -48,7 +48,7 @@ module.exports = {
         pathGroups: [
           {
             pattern:
-              '@(assets|components|containers|features|pages|models|constants|hooks|utils|vendors)/**',
+              '~(assets|clients|components|containers|features|pages|models|constants|hooks|utils|vendors)/**',
             group: 'internal',
           },
         ],
