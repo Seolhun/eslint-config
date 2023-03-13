@@ -1,6 +1,6 @@
 {
   "name": "@seolhun/eslint-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Eslint configuration with prettier",
   "main": "index.js",
   "scripts": {
@@ -27,11 +27,11 @@
     "react"
   ],
   "license": "MIT",
-	"peerDependencies": {
+  "peerDependencies": {
     "typescript": ">=4",
-		"prettier": ">=7",
+    "prettier": ">=7",
     "eslint": ">=2"
-	},
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "4",
     "@typescript-eslint/parser": "4",
