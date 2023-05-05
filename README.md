@@ -1,18 +1,21 @@
-# eslint-config
+# ESLint Configuration
 
-An eslint configuration
+This is an ESLint configuration package that you can use in your JavaScript or TypeScript projects.
 
 ## Installation
 
+To install this package, run the following command:
+
 ```sh
-npm install --dev @seolhun/eslint-config
+npm install --save-dev @seolhun/eslint-config eslint-plugin-eslint-plugin eslint-plugin-prettier
 ```
 
-### Eslint Config
+### Using the ESLint Configuration
 
-Create `.eslintrc` file and extend this eslint configuration.
+To use this configuration, create an `.eslintrc.js` file in the root directory of your project, if you haven't already. Then, extend this configuration in the `.eslintrc` file, like so:
 
 ```js
+// .eslintrc.js
 module.exports = {
   "extends": [
     "@seolhun/eslint-config",
@@ -20,23 +23,30 @@ module.exports = {
 }
 ```
 
-### Prettier Config
+### Using the Prettier Configuration
 
-Create `prettier.config.js` file and extend this prettier configuration.
+This package also includes a Prettier configuration that you can use in your project. To use it, create a `prettier.config.js` file in the root directory of your project and extend this configuration, like so:
 
 ```js
 module.exports = require('@seolhun/eslint-config/prettier.config')
+// or
+module.exports = Object.assign(require('@seolhun/eslint-config/prettier.config'), {
+ // Your prettier config
+})
 ```
 
-### Typescript Config
+### Using the TypeScript Configuration
 
-Create `tsconfig.eslint.json` extended `tsconfig.json`.
+If you are using TypeScript in your project, you can extend your `tsconfig.eslint.json` file from your `tsconfig.json` file and customize it as necessary. Here is an example `tsconfig.eslint.json` file:
 
 ```json
 {
   "extends": "./tsconfig.json",
-  // Customize file path to watch eslint
-  // "include:" [],
-  // "exclude": [],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+  "exclude": ["node_modules"]
 }
 ```
+
+Make sure to update the file paths to match the structure of your project.
+
+I hope this helps! Let me know if you have any further questions.
