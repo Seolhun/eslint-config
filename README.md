@@ -15,7 +15,7 @@ Create `.eslintrc` file and extend this eslint configuration.
 ```js
 module.exports = {
   "extends": [
-    "@seolhun.io/eslint-config",
+    "@seolhun/eslint-config",
   ],
 }
 ```
@@ -36,7 +36,7 @@ Create `tsconfig.eslint.json` extended `tsconfig.json`.
 {
   "extends": "./tsconfig.json",
   // Customize file path to watch eslint
-  // "include:" [], 
+  // "include:" [],
   // "exclude": [],
 }
 ```
