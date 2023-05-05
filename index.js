@@ -67,7 +67,6 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 0,
   },
   settings: {
-    'prettier/prettier': 'error',
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx', '.js', '.jsx']
     },
