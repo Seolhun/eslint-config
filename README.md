@@ -7,7 +7,7 @@ This is an ESLint configuration package that you can use in your JavaScript or T
 To install this package, run the following command:
 
 ```sh
-npm install --save-dev @seolhun/eslint-config eslint-plugin-eslint-plugin eslint-plugin-prettier
+npm install --save-dev @seolhun/eslint-config eslint-plugin-eslint-plugin eslint-plugin-prettier @typescript-eslint/eslint-plugin
 ```
 
 ### Using the ESLint Configuration
