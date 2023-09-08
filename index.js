@@ -2,84 +2,110 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    es2021: true,
     jest: true,
     node: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:react/recommended',
     'plugin:prettier/recommended',
+		'plugin:perfectionist/recommended-alphabetical',
+		'plugin:react/recommended',
     'plugin:react/jsx-runtime',
-    "plugin:react-hooks/recommended"
+    'plugin:react-hooks/recommended'
   ],
 	plugins: [
 		'react',
-		'@typescript-eslint',
-		'eslint-plugin',
-    'import',
-	],
+    '@typescript-eslint',
+    'eslint-plugin',
+    'perfectionist',
+  ],
   parser: '@typescript-eslint/parser',
-  parserOptions: {
-    project: './tsconfig.eslint.json',
-    ecmaVersion: 6,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
   rules: {
     // Custom
     'max-len': 0,
     'no-var-requires': 0,
 		'no-unused-vars': 0,
-    'import/order': [
+		// React
+		'react/prop-types': 0,
+		'react/display-name': 0,
+		// Typescript
+		'@typescript-eslint/explicit-module-boundary-types': 0,
+    /**
+     * @see https://eslint-plugin-perfectionist.azat.io/rules/
+     */
+    'perfectionist/sort-imports': [
       'error',
       {
-				groups: [
-          ["builtin", "external"],
-          "internal",
-          ["object", "type"],
-          "sibling",
-          "parent",
-          "index",
+        'type': 'natural',
+        'order': 'asc',
+        'groups': [
+          'side-effect',
+          'type',
+          ['builtin', 'external', 'seolhun'],
+          'internal-type',
+          'internal',
+          ['parent-type', 'sibling-type', 'index-type'],
+          ['parent', 'sibling', 'index'],
+          'style',
+          'object',
+          'unknown'
         ],
-        pathGroups: [
-          {
-            pattern: "~/**",
-            group: "internal"
+        'custom-groups': {
+          'value': {
+            'seolhun': '@seolhun/**'
           },
-        ],
-        pathGroupsExcludedImportTypes: ['builtin', 'external'],
-        'newlines-between': 'always',
-        warnOnUnassignedImports: true,
-        alphabetize: {
-          order: 'asc',
-          caseInsensitive: true,
         },
+        'newlines-between': 'always',
+        'internal-pattern': [
+          '~/**',
+        ],
+        'read-tsconfig': false
+      }
+    ],
+    'perfectionist/sort-exports': [
+      'error',
+      {
+        'type': 'natural',
+        'order': 'asc',
       },
     ],
-    // React
-    'react/prop-types': 0,
-		'react/display-name': 0,
-    // Typescript
-    '@typescript-eslint/explicit-module-boundary-types': 0,
+    'perfectionist/sort-classes': [
+      'error',
+      {
+        'type': 'natural',
+        'order': 'asc',
+        'groups': [
+          'static-property',
+          'private-property',
+          'property',
+          'constructor',
+          'static-method',
+          'private-method',
+          'method'
+        ]
+      }
+    ],
+    'perfectionist/sort-objects': [
+      'error',
+      {
+        'type': 'natural',
+        'order': 'asc',
+        'always-on-top': ['id', '_id'],
+        'partition-by-comment': 'Part:**'
+      }
+    ],
+    'perfectionist/sort-enums': [
+      'error',
+      {
+        'type': 'natural',
+        'order': 'asc',
+      }
+    ]
   },
   settings: {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx', '.js', '.jsx']
     },
-    'import/resolver': {
-      typescript: {
-        alwaysTryTypes: true
-      },
-      node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
-      }
-    },
-    react: {
-      version: 'detect',
-    }
   }
 }
