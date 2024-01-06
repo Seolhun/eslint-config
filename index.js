@@ -9,13 +9,13 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:prettier/recommended',
-		'plugin:perfectionist/recommended-alphabetical',
-		'plugin:react/recommended',
+    'plugin:perfectionist/recommended-alphabetical',
+    'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended'
   ],
-	plugins: [
-		'react',
+  plugins: [
+    'react',
     '@typescript-eslint',
     'eslint-plugin',
     'perfectionist',
@@ -25,17 +25,17 @@ module.exports = {
     // Custom
     'max-len': 0,
     'no-var-requires': 0,
-		'no-unused-vars': 0,
-		// React
-		'react/prop-types': 0,
-		'react/display-name': 0,
-		// Typescript
-		'@typescript-eslint/explicit-module-boundary-types': 0,
+    'no-unused-vars': 0,
+    // React
+    'react/prop-types': 0,
+    'react/display-name': 0,
+    // Typescript
+    '@typescript-eslint/explicit-module-boundary-types': 0,
     /**
      * @see https://eslint-plugin-perfectionist.azat.io/rules/
      */
     'perfectionist/sort-imports': [
-      'error',
+    'error',
       {
         'type': 'natural',
         'order': 'asc',
