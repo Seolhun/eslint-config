@@ -3,8 +3,13 @@ name: Publish Package at Github Registry
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
+  pull_request:
+    branches:
+      - /^release/.*$/
+      - /^feature/.*$/
+    types: [opened, synchronize, reopened]
 
 jobs:
   build-publish:
@@ -30,10 +35,10 @@ jobs:
         with:
           title: "chore: Bum up packages version to publish"
           commit: "chore: Bump up packages version to publish"
-          version: pnpm changeset:version
-          publish: pnpm changeset:publish
+          version: npm run changeset:version
+          publish: npm run changeset:publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.SEOLHUN_GITHUB_TOKEN}}
 
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
