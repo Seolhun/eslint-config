@@ -91,7 +91,7 @@ module.exports = {
       {
         'type': 'natural',
         'order': 'asc',
-        'always-on-top': ['id', '_id'],
+        'always-on-top': ['**id', '**key'],
         'partition-by-comment': 'Part:**'
       }
     ],

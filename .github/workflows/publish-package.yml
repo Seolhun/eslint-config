@@ -15,20 +15,23 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@seolhun"
 
       - name: Install dependencies
         run: npm i
 
-      - name: Publish package
-        run: npm publish
+      - name: Create Release Pull Request
+        uses: changesets/action@v1
+        with:
+          title: "chore: Bum up packages version to publish"
+          commit: "chore: Bump up packages version to publish"
+          version: pnpm changeset:version
+          publish: pnpm changeset:publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
