@@ -91,7 +91,15 @@ module.exports = {
       {
         'type': 'natural',
         'order': 'asc',
-        'always-on-top': ['**id', '**key'],
+				'always-on-top': [
+					'id',
+					'_id',
+					'key',
+					'ref',
+					'type',
+					'className',
+					'queryKey',
+				],
         'partition-by-comment': 'Part:**'
       }
     ],
