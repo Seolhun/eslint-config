@@ -1,6 +1,6 @@
 {
   "name": "@seolhun/eslint-config",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Eslint configuration with prettier",
   "main": "index.js",
   "scripts": {
@@ -49,7 +49,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": ">=3"
   },
-	"devDependencies": {
+  "devDependencies": {
     "@changesets/cli": "^2.27.1"
-	}
+  }
 }
