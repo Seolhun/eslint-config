@@ -100,6 +100,10 @@ module.exports = {
 					'className',
 					'queryKey',
 				],
+				"custom-groups": {
+					'scale': ['xl', 'lg', 'md', 'sm', 'xs'],
+					'intent': ['primary', 'secondary', 'neutral', 'accent', 'info', 'success', 'warning', 'danger'],
+        },
         'partition-by-comment': 'Part:**'
       }
     ],
