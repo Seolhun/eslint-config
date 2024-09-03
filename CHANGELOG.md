@@ -1,5 +1,11 @@
 # @seolhun/eslint-config
 
+## 1.3.4
+
+### Patch Changes
+
+- chore: update eslint object sort
+
 ## 1.3.3
 
 ### Patch Changes
