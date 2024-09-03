@@ -89,24 +89,24 @@ module.exports = {
     'perfectionist/sort-objects': [
       'error',
       {
-        'type': 'natural',
-        'order': 'asc',
-				'always-on-top': [
-					'id',
-					'_id',
-					'key',
-					'ref',
-					'type',
+        type: 'natural',
+        'always-on-top': [
+          'id',
+          '_id',
+          'key',
+          'ref',
+          'type',
 					'className',
+					'children',
 					'queryKey',
-				],
-				"custom-groups": {
-					'scale': ['xl', 'lg', 'md', 'sm', 'xs'],
-					'intent': ['primary', 'secondary', 'neutral', 'accent', 'info', 'success', 'warning', 'danger'],
-        },
-        'partition-by-comment': 'Part:**'
-      }
-    ],
+					'mutationKey',
+          ['primary', 'secondary', 'neutral', 'accent', 'info', 'success', 'warning', 'danger'],
+          ['xl', 'lg', 'md', 'sm', 'xs'],
+        ],
+        order: 'asc',
+        'partition-by-comment': 'Part:**',
+      },
+		],
     'perfectionist/sort-enums': [
       'error',
       {
