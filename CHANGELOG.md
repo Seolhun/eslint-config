@@ -1,5 +1,11 @@
 # @seolhun/eslint-config
 
+## 1.3.6-alpha.0
+
+### Patch Changes
+
+- chore: update eslint all packages version
+
 ## 1.3.5
 
 ### Patch Changes

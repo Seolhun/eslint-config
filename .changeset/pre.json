@@ -4,5 +4,7 @@
   "initialVersions": {
     "@seolhun/eslint-config": "1.3.5"
   },
-  "changesets": []
+  "changesets": [
+    "kind-trainers-punch"
+  ]
 }
