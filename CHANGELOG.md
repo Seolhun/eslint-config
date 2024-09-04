@@ -1,5 +1,11 @@
 # @seolhun/eslint-config
 
+## 1.4.0-alpha.0
+
+### Minor Changes
+
+- feat: update eslint 8 all packages version latest
+
 ## 1.3.4
 
 ### Patch Changes
