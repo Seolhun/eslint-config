@@ -5,6 +5,7 @@
     "@seolhun/eslint-config": "1.3.4"
   },
   "changesets": [
+    "proud-seas-listen",
     "strong-rice-approve"
   ]
 }

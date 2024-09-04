@@ -1,5 +1,11 @@
 # @seolhun/eslint-config
 
+## 1.4.0-alpha.1
+
+### Patch Changes
+
+- chore: add prerelease packages version
+
 ## 1.4.0-alpha.0
 
 ### Minor Changes
