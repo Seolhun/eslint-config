@@ -7,7 +7,7 @@ This is an ESLint configuration package that you can use in your JavaScript or T
 To install this package, run the following command:
 
 ```sh
-npm install --save-dev @seolhun/eslint-config eslint-plugin-eslint-plugin eslint-plugin-prettier @typescript-eslint/eslint-plugin
+npm install --save-dev @seolhun/eslint-config eslint@8 @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-eslint-plugin eslint-plugin-jsx-a11y eslint-plugin-perfectionist eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks
 ```
 
 ### Using the ESLint Configuration
