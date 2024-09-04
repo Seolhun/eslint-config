@@ -1,13 +1,21 @@
-# ESLint Configuration
+# @seolhun/eslint-config
 
-This is an ESLint configuration package that you can use in your JavaScript or TypeScript projects.
+This package provides an ESLint configuration that can be used in your projects. It includes rules for JavaScript and TypeScript, as well as Prettier configuration.
+
+## Pre-requisites
+
+```markdown
+"eslint": ">=9",
+"prettier": ">=3",
+"typescript": ">=5"
+```
 
 ## Installation
 
 To install this package, run the following command:
 
 ```sh
-npm install --save-dev @seolhun/eslint-config eslint-plugin-eslint-plugin eslint-plugin-prettier @typescript-eslint/eslint-plugin
+npm install --save-dev @seolhun/eslint-config
 ```
 
 ### Using the ESLint Configuration
