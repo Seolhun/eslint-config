@@ -26,7 +26,7 @@ module.exports = {
     'perfectionist/sort-classes': [
       'error',
       {
-        type: 'neutral',
+        type: 'natural',
         groups: [
           'static-property',
           'private-property',
@@ -42,14 +42,14 @@ module.exports = {
     'perfectionist/sort-enums': [
       'error',
       {
-        type: 'neutral',
+        type: 'natural',
         order: 'asc',
       },
     ],
     'perfectionist/sort-exports': [
       'error',
       {
-        type: 'neutral',
+        type: 'natural',
         order: 'asc',
       },
     ],
@@ -59,7 +59,7 @@ module.exports = {
     'perfectionist/sort-imports': [
       'error',
       {
-        type: 'neutral',
+        type: 'natural',
         customGroups: {
           value: {
             seolhun: '@seolhun/**',
@@ -87,9 +87,9 @@ module.exports = {
     'perfectionist/sort-objects': [
       'error',
       {
-        type: 'neutral',
+        type: 'natural',
         customGroups: {
-          intents: ['primary', 'secondary', 'neutral', 'accent', 'info', 'success', 'warning', 'danger'],
+          intents: ['primary', 'secondary', 'neutral', 'faint', 'accent', 'info', 'success', 'warning', 'danger'],
           scales: ['xl', 'lg', 'md', 'sm', 'xs'],
           ids: ['id', '_id'],
           keys: ['key', 'queryKey', 'mutationKey'],
