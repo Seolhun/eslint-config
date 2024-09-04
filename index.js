@@ -86,24 +86,43 @@ module.exports = {
         ]
       }
     ],
+    /**
+     * @see https://perfectionist.dev/rules/sort-objects
+     */
     'perfectionist/sort-objects': [
       'error',
       {
-        type: 'natural',
-        'always-on-top': [
-          'id',
-          '_id',
-          'key',
-          'ref',
-          'type',
-					'className',
-					'children',
-					'queryKey',
-					'mutationKey',
-          ['primary', 'secondary', 'neutral', 'accent', 'info', 'success', 'warning', 'danger'],
-          ['xl', 'lg', 'md', 'sm', 'xs'],
-        ],
+        type: 'alphabetical',
         order: 'asc',
+        partitionByComment: false,
+        partitionByNewLine: false,
+        styledComponents: true,
+        groups: [
+          'ids',
+          'keys',
+          'types',
+          'variants',
+          'scales',
+          'intents',
+        ],
+        customGroups: {
+          react: ['children', 'className', 'ref'],
+          keys: ['key', 'queryKey', 'mutationKey'],
+          ids: ['id', '_id'],
+          types: ['type'],
+          variants: ['scales', 'intents'],
+          scales: ['xl', 'lg', 'md', 'sm', 'xs'],
+          intents: [
+            'primary',
+            'secondary',
+            'neutral',
+            'accent',
+            'info',
+            'success',
+            'warning',
+            'danger',
+          ]
+        },
         'partition-by-comment': 'Part:**',
       },
 		],
