@@ -1,6 +1,6 @@
 {
   "name": "@seolhun/eslint-config",
-  "version": "1.4.0-alpha.1",
+  "version": "1.4.0-alpha.2",
   "description": "Eslint configuration with prettier",
   "main": "index.js",
   "scripts": {

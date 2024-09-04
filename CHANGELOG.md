@@ -1,5 +1,11 @@
 # @seolhun/eslint-config
 
+## 1.4.0-alpha.2
+
+### Patch Changes
+
+- fix: change the neutral to nautral type
+
 ## 1.4.0-alpha.1
 
 ### Patch Changes
