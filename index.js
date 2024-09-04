@@ -123,7 +123,6 @@ module.exports = {
             'danger',
           ]
         },
-        'partition-by-comment': 'Part:**',
       },
 		],
     'perfectionist/sort-enums': [
