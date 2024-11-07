@@ -1,5 +1,11 @@
 # @seolhun/eslint-config
 
+## 1.4.0-alpha.3
+
+### Patch Changes
+
+- rollback to eslint9 to eslint8
+
 ## 1.4.0-alpha.2
 
 ### Patch Changes
