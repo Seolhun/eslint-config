@@ -1,7 +1,7 @@
 {
   "name": "@seolhun/eslint-config",
   "description": "Eslint configuration with prettier",
-  "version": "1.4.0-alpha.3",
+  "version": "1.4.0",
   "publishConfig": {
     "access": "public"
   },

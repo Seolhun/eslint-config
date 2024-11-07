@@ -1,5 +1,17 @@
 # @seolhun/eslint-config
 
+## 1.4.0
+
+### Minor Changes
+
+- 0a07d7f: feat: update eslint 8 all packages version latest
+
+### Patch Changes
+
+- e8b6c8a: rollback to eslint9 to eslint8
+- c8c2474: fix: change the neutral to nautral type
+- 171331f: chore: add prerelease packages version
+
 ## 1.4.0-alpha.3
 
 ### Patch Changes
