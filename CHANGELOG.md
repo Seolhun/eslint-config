@@ -1,5 +1,11 @@
 # @seolhun/eslint-config
 
+## 1.4.1
+
+### Patch Changes
+
+- update eslint object sorting config
+
 ## 1.4.0
 
 ### Minor Changes
