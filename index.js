@@ -22,7 +22,6 @@ module.exports = {
     'max-len': 0,
     'no-unused-vars': 0,
     'no-var-requires': 0,
-    // Perfectionist
     'perfectionist/sort-classes': [
       'error',
       {
@@ -39,6 +38,7 @@ module.exports = {
         order: 'asc',
       },
     ],
+    // Perfectionist
     'perfectionist/sort-enums': [
       'error',
       {
@@ -93,14 +93,13 @@ module.exports = {
           scales: ['xl', 'lg', 'md', 'sm', 'xs'],
           ids: ['id', '_id'],
           keys: ['key', 'queryKey', 'mutationKey'],
-          react: ['children', 'className', 'ref'],
+          react: ['children', 'ref', 'className'],
           types: ['type'],
-          variants: ['scales', 'intents'],
+          variants: ['variants', 'intents', 'scales', 'sizes', 'states'],
         },
         groups: ['react', 'ids', 'keys', 'types', 'variants', 'scales', 'intents'],
         order: 'asc',
-        partitionByComment: false,
-        partitionByNewLine: false,
+        partitionByNewLine: true,
         styledComponents: true,
       },
     ],
