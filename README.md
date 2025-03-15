@@ -31,6 +31,9 @@ This package has peer dependencies that you'll need to install:
 
 ```sh
 npm install --save-dev eslint@^8 prettier@^3 typescript@^5
+
+# pnpm
+pnpm add --save-dev eslint@^8 prettier@^3 typescript@^5
 ```
 
 ### Using the ESLint Configuration
@@ -88,6 +91,35 @@ module.exports = {
   }
 }
 ```
+
+## Testing Before Publishing
+
+This package includes a testing setup to ensure the ESLint configuration works correctly before publishing. The tests validate that the rules correctly identify both good and bad code patterns.
+
+### Running Tests
+
+To run the tests:
+
+```sh
+npm test
+```
+
+This will run the test script that lints the test fixtures in the `test/fixtures` directory. The test fixtures include:
+
+- `good-*.ts/tsx` - Files that should pass linting with no errors
+- `bad-*.ts/tsx` - Files that should intentionally fail linting to verify rules are working
+
+### Adding New Tests
+
+To add new test cases:
+
+1. Create a new file in the `test/fixtures` directory
+2. Name it `good-*.ts/tsx` for code that should pass linting, or `bad-*.ts/tsx` for code that should fail
+3. Run `npm test` to verify the test works as expected
+
+### Pre-publish Testing
+
+The package is configured to automatically run tests before publishing using the `prepublishOnly` script. This ensures that the ESLint configuration is working correctly before it's published.
 
 ## Included Rules and Plugins
 

@@ -50,6 +50,9 @@
       "./node_modules/@types",
       "./@types",
     ],
+    "paths": {
+      "~/*": ["./src/*"]
+    }
   },
   "include": [
     "**/*.ts",
@@ -58,8 +61,9 @@
     "**/*.jsx",
     "**/*.cjs",
     "**/*.mjs",
-    "@types"
-, ".eslintrc.js"  ],
+    "@types",
+    ".eslintrc.js"
+  ],
   "exclude": [
     "node_modules",
     "dist",

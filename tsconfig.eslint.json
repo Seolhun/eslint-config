@@ -4,9 +4,10 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
-    "**/*.jsx"
+    "**/*.jsx",
+    ".eslintrc.js"
   ],
   "exclude": [
-    "node_modules",
+    "node_modules"
   ]
 }

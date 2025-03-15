@@ -7,6 +7,7 @@ module.exports = {
       jsx: true,
     },
     ecmaVersion: 'latest',
+    project: './tsconfig.eslint.json',
     sourceType: 'module',
   },
 };
