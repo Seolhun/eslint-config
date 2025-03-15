@@ -1,5 +1,11 @@
 # @seolhun/eslint-config
 
+## 1.5.0
+
+### Minor Changes
+
+- update eslint rules with test
+
 ## 1.4.1
 
 ### Patch Changes
