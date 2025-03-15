@@ -1,9 +1,12 @@
 const eslintConfig = require('./index.js');
 
-module.exports = Object.assign(eslintConfig, {
+module.exports = {
+  ...eslintConfig,
   parserOptions: {
-    parser: '@typescript-eslint/parser',
-    project: './tsconfig.eslint.json',
-    tsconfigRootDir: __dirname,
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
-})
+};

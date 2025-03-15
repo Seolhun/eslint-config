@@ -32,9 +32,6 @@ importers:
       eslint-plugin-perfectionist:
         specifier: ^3.9.1
         version: 3.9.1(eslint@8.57.1)(typescript@5.7.2)
-      eslint-plugin-prettier:
-        specifier: ^5.2.1
-        version: 5.2.1(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.4.1)
       eslint-plugin-react:
         specifier: ^7.37.2
         version: 7.37.2(eslint@8.57.1)
@@ -54,6 +51,9 @@ importers:
       '@types/react':
         specifier: ^18.3.12
         version: 18.3.12
+      eslint-plugin-prettier:
+        specifier: ^5.2.1
+        version: 5.2.1(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.4.1)
       react:
         specifier: ^18.3.1
         version: 18.3.1
