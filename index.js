@@ -67,6 +67,14 @@ export default [
 
       // Typescript
       '@typescript-eslint/explicit-module-boundary-types': 0,
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          prefer: 'type-imports',
+          disallowTypeAnnotations: true,
+          fixStyle: 'separate-type-imports',
+        },
+      ],
 
       'react/prop-types': 0,
       // Javascript
