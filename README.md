@@ -115,25 +115,29 @@ Create or update your `tsconfig.json`:
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "strict": true
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src/**/*", "*.js", "*.ts"],
+  "exclude": ["node_modules", "dist", "build"]
 }
 ```
 
-## Package.json Setup
+### 5. VSCode Integration (optional)
 
-Add `"type": "module"` to your `package.json` for ES modules support:
+Create `.vscode/settings.json` for automatic formatting:
 
 ```json
 {
-  "type": "module",
-  "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write ."
-  }
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.experimental.useFlatConfig": true
 }
 ```
 
@@ -165,7 +169,9 @@ Add `"type": "module"` to your `package.json` for ES modules support:
 - `react/prop-types`: Disabled (use TypeScript interfaces)
 - `react/display-name`: Disabled
 
-## Example
+## Usage Example
+
+### Basic JavaScript/TypeScript file
 
 ```typescript
 // Imports are automatically sorted
@@ -173,7 +179,7 @@ import type { FC } from 'react';
 
 import React, { useState } from 'react';
 
-import { Button } from '@seolhun/firstage-ui';
+import { Button } from '@seolhun/ui';
 
 import type { LocalType } from './types';
 
@@ -203,6 +209,81 @@ class Service {
   public fetch() {}            // public methods
 }
 ```
+
+### React Component Example
+
+```tsx
+import type { FC, ReactNode } from 'react';
+
+import React from 'react';
+
+interface ButtonProps {
+  children: ReactNode;
+  className?: string;
+  ref?: React.Ref<HTMLButtonElement>;
+  id: string;
+  type: 'button' | 'submit';
+  scale: 'lg' | 'md' | 'sm';
+  intent: 'primary' | 'secondary' | 'danger';
+  onClick?: () => void;
+  disabled?: boolean;
+}
+
+const Button: FC<ButtonProps> = ({
+  children,
+  className,
+  ref,
+  id,
+  type,
+  scale,
+  intent,
+  onClick,
+  disabled,
+}) => {
+  return (
+    <button
+      ref={ref}
+      id={id}
+      type={type}
+      className={className}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+};
+
+export default Button;
+```
+
+## Troubleshooting
+
+### ESLint not working
+
+Make sure you're using ESLint v9+ and have created `eslint.config.js` (not `.eslintrc.js`).
+
+### TypeScript errors
+
+If you see TypeScript errors about missing types, ensure `skipLibCheck` is set to `true` in your `tsconfig.json`.
+
+### Import sorting not working
+
+Check that your imports match the patterns defined in the configuration. The default pattern for internal imports is `~/.+`.
+
+## Migration from v8 to v9
+
+If you're migrating from ESLint v8:
+
+1. Remove old config files (`.eslintrc.js`, `.eslintrc.json`, etc.)
+2. Create new `eslint.config.js` with flat config format
+3. Update all ESLint-related packages to versions that support v9
+4. Update your scripts in `package.json`
+5. Add `"type": "module"` to `package.json`
+
+## Contributing
+
+Issues and pull requests are welcome at [https://github.com/seolhun/eslint-config](https://github.com/seolhun/eslint-config)
 
 ## License
 

@@ -1,5 +1,32 @@
 # @seolhun/eslint-config
 
+## 2.1.0
+
+### Minor Changes
+
+- official release eslint 9 version
+
+## 2.0.0
+
+### Major Changes
+
+- change eslint version 8 to 9
+
+### Minor Changes
+
+- 0a07d7f: feat: update eslint 8 all packages version latest
+
+### Patch Changes
+
+- c8c2474: fix: change the neutral to nautral type
+- 171331f: chore: add prerelease packages version
+
+## 2.0.0-alpha.3
+
+### Major Changes
+
+- change eslint version 8 to 9
+
 ## 1.4.0-alpha.2
 
 ### Patch Changes
