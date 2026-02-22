@@ -1,5 +1,17 @@
 # @seolhun/eslint-config
 
+## 2.2.0
+
+### Minor Changes
+
+- feat: modular config exports (base, react) with full dependency modernization
+  - New export `@seolhun/eslint-config/base` for BE (NestJS/Node.js) projects
+  - New export `@seolhun/eslint-config/react` for FE additive config
+  - Default export (`@seolhun/eslint-config`) remains backward compatible (base + react)
+  - React plugins moved to optional peerDependencies
+  - Upgraded perfectionist v4→v5, eslint-config-prettier v9→v10
+  - All dependencies updated to latest versions
+
 ## 2.1.1
 
 ### Patch Changes
