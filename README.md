@@ -1,289 +1,151 @@
-# ESLint Configuration
+# @seolhun/eslint-config
 
-This is an ESLint configuration package with ESLint v9+ flat config support for JavaScript, TypeScript, and React projects with Prettier integration.
+ESLint v9+ flat config for TypeScript, React, and Node.js projects with Prettier integration.
 
 ## Features
 
-- ✨ ESLint v9+ flat config format
-- 📦 ES modules support
-- 🎯 TypeScript support with @typescript-eslint
-- ⚛️ React and React Hooks support
-- 💅 Prettier integration
-- 🎨 Perfectionist plugin for consistent code sorting
-- 📱 JSX accessibility checks
+- ESLint v9+ flat config (ESM)
+- Modular: `base` (TS/Node) + `react` (FE) 분리
+- TypeScript support (@typescript-eslint)
+- React / React Hooks / JSX A11y support
+- Prettier integration
+- Perfectionist plugin (v5) for consistent code sorting
 
 ## Requirements
 
-- Node.js >= 18
-- ESLint >= 9.0.0
-- TypeScript >= 5.0.0 (if using TypeScript)
+- Node.js >= 20
+- ESLint >= 9
+- TypeScript >= 5
 
 ## Installation
 
-### Using pnpm (recommended)
-
 ```sh
-pnpm add -D @seolhun/eslint-config
+pnpm add -D @seolhun/eslint-config eslint prettier typescript
 ```
 
-### Using npm
+FE (React) 프로젝트는 React 플러그인도 설치:
 
 ```sh
-npm install --save-dev @seolhun/eslint-config
+pnpm add -D eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y
 ```
 
-### Using yarn
+## Usage
 
-```sh
-yarn add -D @seolhun/eslint-config
-```
-
-### Install with peer dependencies
-
-If you need to install all peer dependencies:
-
-```sh
-pnpm add -D @seolhun/eslint-config eslint@^9.29.0 prettier@^3.3.3 typescript@^5.0.0
-```
-
-## Configuration
-
-### 1. ESLint Configuration
-
-Create an `eslint.config.js` file in your project root:
+### FE (Next.js / React) - 전체 config
 
 ```js
-// eslint.config.js
-import sharedConfig from '@seolhun/eslint-config';
+// eslint.config.js (or eslint.config.mjs for CJS projects)
+import config from '@seolhun/eslint-config';
 
 export default [
-  ...sharedConfig,
+  ...config,
   {
-    // Your custom rules and overrides
-    ignores: ['node_modules/**', 'dist/**', 'build/**'],
+    ignores: ['node_modules/**', '.next/**', 'dist/**'],
   },
 ];
 ```
 
-### 2. Prettier Configuration
+### BE (NestJS / Node.js) - base config만
 
-Create a `prettier.config.js` file in your project root:
+React 플러그인 불필요. base만 사용:
 
 ```js
-// prettier.config.js
-import prettierConfig from '@seolhun/eslint-config/prettier';
+// eslint.config.js (or eslint.config.mjs for CJS projects)
+import baseConfig from '@seolhun/eslint-config/base';
 
-export default {
-  ...prettierConfig,
-  // Your custom prettier config
-};
+export default [
+  ...baseConfig,
+  {
+    ignores: ['node_modules/**', 'dist/**'],
+  },
+];
 ```
 
-Or use it directly without modifications:
+### Modular 사용 (base + react 명시적 합성)
+
+```js
+import baseConfig from '@seolhun/eslint-config/base';
+import reactConfig from '@seolhun/eslint-config/react';
+
+export default [
+  ...baseConfig,
+  ...reactConfig,
+  {
+    ignores: ['node_modules/**', 'dist/**'],
+  },
+];
+```
+
+### Prettier
 
 ```js
 // prettier.config.js
 export { default } from '@seolhun/eslint-config/prettier';
 ```
 
-### 3. Package.json Setup
+### CJS 프로젝트 (type: "module" 없는 경우)
 
-Add `"type": "module"` to your `package.json` for ES modules support:
+파일 확장자를 `.mjs`로 사용하면 ESM config 사용 가능:
 
-```json
-{
-  "type": "module",
-  "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
-    "typecheck": "tsc --noEmit"
-  }
-}
-```
+```js
+// eslint.config.mjs
+import baseConfig from '@seolhun/eslint-config/base';
 
-### 4. TypeScript Configuration (if using TypeScript)
-
-Create or update your `tsconfig.json`:
-
-```json
-{
-  "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "jsx": "react-jsx",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true
+export default [
+  ...baseConfig,
+  {
+    ignores: ['node_modules/**', 'dist/**'],
   },
-  "include": ["src/**/*", "*.js", "*.ts"],
-  "exclude": ["node_modules", "dist", "build"]
-}
+];
 ```
 
-### 5. VSCode Integration (optional)
+## Exports
 
-Create `.vscode/settings.json` for automatic formatting:
+| Export | Description | Use Case |
+|--------|-------------|----------|
+| `@seolhun/eslint-config` | base + react 합성 | FE 프로젝트 (기본) |
+| `@seolhun/eslint-config/base` | TS + Prettier + Perfectionist | BE / 공통 라이브러리 |
+| `@seolhun/eslint-config/react` | React + Hooks + JSX A11y | FE additive |
+| `@seolhun/eslint-config/prettier` | Prettier config | Prettier 설정 |
 
-```json
-{
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "eslint.experimental.useFlatConfig": true
-}
-```
+## Included Plugins
 
-## Included Plugins and Rules
+### Base (`./base`)
 
-### Plugins
-
-- `@typescript-eslint` - TypeScript linting rules
-- `eslint-plugin-react` - React specific linting rules
-- `eslint-plugin-react-hooks` - React Hooks rules
-- `eslint-plugin-jsx-a11y` - Accessibility rules for JSX
-- `eslint-plugin-perfectionist` - Sorting and organizing code
+- `@typescript-eslint` - TypeScript linting
+- `eslint-plugin-perfectionist` (v5) - Code sorting
 - `eslint-plugin-prettier` - Prettier integration
+- `eslint-config-prettier` - Prettier conflict resolution
 
-### Key Rules
+### React (`./react`)
 
-#### Perfectionist Sorting
+- `eslint-plugin-react` - React rules
+- `eslint-plugin-react-hooks` - Hooks rules
+- `eslint-plugin-jsx-a11y` - Accessibility
 
-- **Imports**: Sorted by type, builtin/external, internal
-- **Objects**: Sorted with custom groups (id, type, scales, intents)
-- **Classes**: Members sorted by static/private/public and properties/methods
-- **Enums**: Alphabetically sorted
-- **Exports**: Alphabetically sorted
+## Key Rules
 
-#### Disabled Rules
+### Perfectionist Sorting
 
-- `@typescript-eslint/explicit-module-boundary-types`: Disabled
-- `no-unused-vars`: Disabled (use TypeScript's check instead)
-- `react/prop-types`: Disabled (use TypeScript interfaces)
-- `react/display-name`: Disabled
+- **Imports**: type > builtin/external > internal > parent/sibling > style > side-effect
+- **Objects**: Custom groups (react props, ids, keys, types, variants, scales, intents)
+- **Classes**: static > private > public, properties > constructor > methods
+- **Enums/Exports**: Natural alphabetical order
 
-## Usage Example
+### TypeScript
 
-### Basic JavaScript/TypeScript file
+- `consistent-type-imports`: Enforce `import type` with separate type imports
+- `explicit-module-boundary-types`: Disabled
 
-```typescript
-// Imports are automatically sorted
-import type { FC } from 'react';
+## Migration from v1 (ESLint 8)
 
-import React, { useState } from 'react';
-
-import { Button } from '@seolhun/ui';
-
-import type { LocalType } from './types';
-
-// Objects are sorted according to custom groups
-const config = {
-  id: '123',        // ids group
-  type: 'primary',  // types group
-  scale: 'md',      // scales group
-  intent: 'info',   // intents group
-  name: 'Button',   // other properties
-};
-
-// Class members are sorted
-class Service {
-  static API_URL = '/api';     // static properties first
-
-  private key: string;         // private properties
-
-  public timeout: number;      // public properties
-
-  constructor() {}             // constructor
-
-  static create() {}           // static methods
-
-  private validate() {}        // private methods
-
-  public fetch() {}            // public methods
-}
-```
-
-### React Component Example
-
-```tsx
-import type { FC, ReactNode } from 'react';
-
-import React from 'react';
-
-interface ButtonProps {
-  children: ReactNode;
-  className?: string;
-  ref?: React.Ref<HTMLButtonElement>;
-  id: string;
-  type: 'button' | 'submit';
-  scale: 'lg' | 'md' | 'sm';
-  intent: 'primary' | 'secondary' | 'danger';
-  onClick?: () => void;
-  disabled?: boolean;
-}
-
-const Button: FC<ButtonProps> = ({
-  children,
-  className,
-  ref,
-  id,
-  type,
-  scale,
-  intent,
-  onClick,
-  disabled,
-}) => {
-  return (
-    <button
-      ref={ref}
-      id={id}
-      type={type}
-      className={className}
-      disabled={disabled}
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  );
-};
-
-export default Button;
-```
-
-## Troubleshooting
-
-### ESLint not working
-
-Make sure you're using ESLint v9+ and have created `eslint.config.js` (not `.eslintrc.js`).
-
-### TypeScript errors
-
-If you see TypeScript errors about missing types, ensure `skipLibCheck` is set to `true` in your `tsconfig.json`.
-
-### Import sorting not working
-
-Check that your imports match the patterns defined in the configuration. The default pattern for internal imports is `~/.+`.
-
-## Migration from v8 to v9
-
-If you're migrating from ESLint v8:
-
-1. Remove old config files (`.eslintrc.js`, `.eslintrc.json`, etc.)
-2. Create new `eslint.config.js` with flat config format
-3. Update all ESLint-related packages to versions that support v9
-4. Update your scripts in `package.json`
-5. Add `"type": "module"` to `package.json`
-
-## Contributing
-
-Issues and pull requests are welcome at [https://github.com/seolhun/eslint-config](https://github.com/seolhun/eslint-config)
+1. Remove `.eslintrc.js` / `.eslintrc.cjs` / `.eslintignore`
+2. Create `eslint.config.js` (or `.mjs`)
+3. Update dependencies:
+   ```sh
+   pnpm add -D @seolhun/eslint-config@latest eslint@^9 prettier@^3
+   ```
+4. Add `"type": "module"` to `package.json` (or use `.mjs` extension)
 
 ## License
 
