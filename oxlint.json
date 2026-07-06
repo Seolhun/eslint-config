@@ -1,0 +1,96 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react"],
+  "jsPlugins": [
+    { "name": "perfectionist", "specifier": "eslint-plugin-perfectionist" },
+    { "name": "react-hooks-js", "specifier": "eslint-plugin-react-hooks" }
+  ],
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "typescript/consistent-type-imports": [
+      "error",
+      { "prefer": "type-imports", "disallowTypeAnnotations": true, "fixStyle": "separate-type-imports" }
+    ],
+    "no-unused-vars": ["error", { "args": "none", "ignoreRestSiblings": true }],
+
+    "react/display-name": "off",
+    "react/no-unescaped-entities": "off",
+    "react/exhaustive-deps": "warn",
+    "react/react-compiler": "off",
+
+    "perfectionist/sort-classes": [
+      "error",
+      {
+        "type": "natural",
+        "order": "asc",
+        "groups": [
+          "static-property",
+          "private-property",
+          "property",
+          "constructor",
+          "static-method",
+          "private-method",
+          "method"
+        ]
+      }
+    ],
+    "perfectionist/sort-enums": ["error", { "type": "natural", "order": "asc" }],
+    "perfectionist/sort-exports": ["error", { "type": "natural", "order": "asc" }],
+    "perfectionist/sort-imports": [
+      "error",
+      {
+        "type": "natural",
+        "order": "asc",
+        "ignoreCase": true,
+        "environment": "node",
+        "internalPattern": ["^~/.+"],
+        "newlinesBetween": 1,
+        "customGroups": [
+          { "groupName": "type-seolhun", "elementNamePattern": "@seolhun/.+", "modifiers": ["type"] },
+          { "groupName": "seolhun", "elementNamePattern": "@seolhun/.+" }
+        ],
+        "groups": [
+          ["type-builtin", "type-external", "type-seolhun"],
+          ["builtin", "external", "seolhun"],
+          "type-internal",
+          "internal",
+          ["type-parent", "type-sibling", "type-index"],
+          ["parent", "sibling", "index"],
+          "style",
+          "side-effect",
+          "unknown"
+        ]
+      }
+    ],
+    "perfectionist/sort-objects": [
+      "error",
+      {
+        "type": "natural",
+        "order": "asc",
+        "partitionByComment": false,
+        "partitionByNewLine": false,
+        "styledComponents": true,
+        "customGroups": [
+          { "groupName": "react", "elementNamePattern": "^(children|className|ref)$" },
+          { "groupName": "ids", "elementNamePattern": "^(id|_id)$" },
+          { "groupName": "keys", "elementNamePattern": "^(key|queryKey|mutationKey)$" },
+          { "groupName": "types", "elementNamePattern": "^type$" },
+          {
+            "groupName": "intents",
+            "elementNamePattern": "^(primary|secondary|neutral|faint|accent|info|success|warning|danger)$"
+          },
+          { "groupName": "scales", "elementNamePattern": "^(xl|lg|md|sm|xs)$" },
+          { "groupName": "variants", "elementNamePattern": "^(scales|intents)$" }
+        ],
+        "groups": ["react", "ids", "keys", "types", "variants", "scales", "intents"]
+      }
+    ],
+
+    "react-hooks-js/refs": "warn",
+    "react-hooks-js/static-components": "warn",
+    "react-hooks-js/preserve-manual-memoization": "off",
+    "react-hooks-js/incompatible-library": "off"
+  }
+}
