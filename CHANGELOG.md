@@ -1,5 +1,13 @@
 # @seolhun/eslint-config
 
+## 3.0.0
+
+### Major Changes
+
+- afa9d1e: Add oxlint and oxfmt presets (`./oxlint`, `./oxfmt`) as a Rust-based drop-in for the ESLint + Prettier configs. The oxlint preset loads perfectionist and react-hooks (incl. React Compiler rules `refs` / `static-components`) via oxlint jsPlugins, preserving the same rule spec.
+
+  BREAKING: `eslint-plugin-react-hooks` peer bumped to `>=7` (React Compiler rules require v7).
+
 ## 2.2.0
 
 ### Minor Changes

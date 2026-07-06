@@ -1,7 +1,7 @@
 {
   "name": "@seolhun/eslint-config",
   "description": "Lint/format configuration for TypeScript, React, and Node.js — ESLint + Prettier and oxlint + oxfmt presets",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "publishConfig": {
     "access": "public"
   },
